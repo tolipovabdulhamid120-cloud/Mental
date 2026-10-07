@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mental Arifmetika 🧮</title>
+<style>
+:root{--bg:#fff7e6;--card:#fff;--tx:#2b2d42;--mut:#7a7f9a;--p:#6c5ce7;--g:#00b894;--o:#ff9f1c;--r:#ff5e78;--b:#2dabf9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1d1b2e;--card:#2a2842;--tx:#f3f1ff;--mut:#a9a6c9}}
+:root[data-theme=dark]{--bg:#1d1b2e;--card:#2a2842;--tx:#f3f1ff;--mut:#a9a6c9}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Nunito","Trebuchet MS",system-ui,sans-serif;padding-bottom:84px}
+main{max-width:520px;margin:auto;padding:14px}
+h1,h2,h3{margin:0 0 8px}h2{font-size:20px}
+.card{background:var(--card);border-radius:22px;padding:16px;margin-bottom:14px;box-shadow:0 4px 0 rgba(0,0,0,.08)}
+.hero{background:linear-gradient(135deg,var(--p),var(--b));color:#fff}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:14px;font:800 17px inherit;font-family:inherit;color:#fff;background:var(--g);box-shadow:0 5px 0 rgba(0,0,0,.2);cursor:pointer;margin-top:10px;text-align:center}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.btn.o{background:var(--o)}.btn.p{background:var(--p)}.btn.r{background:var(--r)}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}
+.stat{text-align:center;background:var(--card);border-radius:18px;padding:10px 4px;box-shadow:0 3px 0 rgba(0,0,0,.08)}
+.stat b{display:block;font-size:22px}.stat small{color:var(--mut)}
+.bar{height:14px;background:rgba(127,127,127,.2);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--o),var(--r));border-radius:9px;transition:width .5s}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -3px 12px rgba(0,0,0,.12);z-index:5}
+nav button{background:none;border:0;font:700 11px inherit;font-family:inherit;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 8px;border-radius:12px}
+nav button span{font-size:22px}nav button.on{color:var(--p);background:rgba(108,92,231,.12)}
+.sec{display:none}.sec.on{display:block;animation:pop .3s}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.op{background:var(--card);border:0;border-radius:18px;padding:14px;font:800 16px inherit;font-family:inherit;color:var(--tx);box-shadow:0 4px 0 rgba(0,0,0,.1)}
+.op span{display:block;font-size:34px}
+.q{font-size:56px;font-weight:900;text-align:center;margin:18px 0 6px}
+.ans{font-size:40px;text-align:center;min-height:56px;background:rgba(127,127,127,.12);border-radius:16px;font-weight:800;padding:4px}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.pad button{font:800 26px inherit;font-family:inherit;border:0;border-radius:14px;padding:14px 0;background:var(--card);color:var(--tx);box-shadow:0 4px 0 rgba(0,0,0,.12)}
+.pad button:active{transform:translateY(3px)}
+.shake{animation:sh .35s}@keyframes sh{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.good{color:var(--g)}.bad{color:var(--r)}
+.lb{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(127,127,127,.3)}.lb:last-child{border:0}
+.lb em{font-style:normal;width:28px;font-size:20px}.lb b{flex:1}.me{background:rgba(108,92,231,.14);border-radius:12px;padding:8px}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.bd{text-align:center;font-size:11px;padding:8px 2px;border-radius:14px;background:rgba(127,127,127,.12);filter:grayscale(1);opacity:.55}.bd.on{filter:none;opacity:1;background:rgba(255,159,28,.2)}.bd span{display:block;font-size:30px}
+input,select{width:100%;padding:13px;border-radius:14px;border:2px solid rgba(127,127,127,.3);font:16px inherit;font-family:inherit;margin-top:8px;background:var(--card);color:var(--tx)}
+.tabs{display:flex;gap:6px;margin-bottom:10px}.tabs button{flex:1;border:0;padding:9px;border-radius:12px;font:800 14px inherit;font-family:inherit;background:rgba(127,127,127,.15);color:var(--tx)}.tabs button.on{background:var(--p);color:#fff}
+.tc{display:flex;gap:12px;align-items:center;margin:8px 0}.tc i{font-size:38px;font-style:normal}
+.pill{display:inline-block;background:rgba(255,255,255,.25);border-radius:20px;padding:3px 10px;font-size:13px;font-weight:800}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:9;padding:20px}.ov.on{display:flex}
+.ov .card{text-align:center;max-width:360px;width:100%;animation:pop .3s}
+.big{font-size:70px;line-height:1}
+.cf{position:fixed;top:-20px;font-size:26px;pointer-events:none;animation:fall 2s linear forwards;z-index:10}@keyframes fall{to{transform:translateY(110vh) rotate(540deg)}}
+.toast{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:var(--p);color:#fff;padding:10px 18px;border-radius:20px;font-weight:800;z-index:11;display:none}
+</style><script src="https://telegram.org/js/telegram-web-app.js"></script></head><body>
+<div class="toast" id="toast"></div>
+<main>
+<!-- HOME -->
+<section class="sec on" id="home">
+ <div class="card hero">
+  <span class="pill" id="hLvl"></span>
+  <h1 style="margin-top:8px">Salom, <span id="hName">do‘stim</span>! 👋</h1>
+  <p style="margin:0 0 4px">Miyangni charxla — aqlli hisoblovchi bo‘l! 🧠⚡</p>
+  <button class="btn o" onclick="startGame('daily')">▶ Bepul boshlash</button>
+ </div>
+ <div class="row" style="margin-bottom:14px">
+  <div class="stat"><b id="sStar">0</b><small>⭐ Yulduz</small></div>
+  <div class="stat"><b id="sXp">0</b><small>🏆 Ball</small></div>
+  <div class="stat"><b id="sStr">0</b><small>🔥 Seriya</small></div>
+ </div>
+ <div class="card"><h2>📅 Kundalik topshiriq</h2>
+  <p style="margin:0;color:var(--mut)" id="dTxt">10 ta aralash misol. Hammasini to‘g‘ri yech — +50 bonus ball!</p>
+  <div class="bar" style="margin-top:10px"><i id="dBar" style="width:0"></i></div>
+  <button class="btn" id="dBtn" onclick="startGame('daily')">✅ Topshiriqni bajarish</button></div>
+ <div class="card"><h2>🎁 Virtual sovg‘a</h2><p style="margin:0" id="gift"></p></div>
+ <div class="card" style="background:linear-gradient(135deg,var(--o),var(--r));color:#fff"><h2>🎓 Bepul sinov darsi</h2><p style="margin:0">Haqiqiy ustoz bilan 1-dars — mutlaqo bepul!</p>
+  <button class="btn p" onclick="go('course');document.getElementById('fName').focus()">👀 Sinov darsini ko‘rish</button></div>
+</section>
+
+<!-- PRACTICE -->
+<section class="sec" id="prac">
+ <h2>🎮 Mashq tanla</h2>
+ <div class="tabs" id="lvTabs"><button data-l="1" class="on">🌱 Oson</button><button data-l="2">🌿 O‘rta</button><button data-l="3">🌳 Qiyin</button></div>
+ <div class="grid">
+  <button class="op" onclick="startGame('+')"><span>➕</span>Qo‘shish</button>
+  <button class="op" onclick="startGame('-')"><span>➖</span>Ayirish</button>
+  <button class="op" onclick="startGame('*')"><span>✖️</span>Ko‘paytirish</button>
+  <button class="op" onclick="startGame('/')"><span>➗</span>Bo‘lish</button>
+ </div>
+ <div class="card" style="margin-top:14px"><h2>⏱ 60 soniyalik chaqiriq</h2><p style="margin:0;color:var(--mut)">Qancha ko‘p yechsang, shuncha ko‘p ball!</p>
+  <button class="btn r" onclick="startGame('blitz')">⚡ Musobaqani boshlash</button></div>
+ <div class="card"><h2>🧩 Viktorina</h2><p style="margin:0;color:var(--mut)">Qaysi javob to‘g‘ri? Tez tanla!</p>
+  <button class="btn p" onclick="startGame('quiz')">🧠 Viktorinani boshlash</button></div>
+</section>
+
+<!-- LEADERBOARD -->
+<section class="sec" id="lead">
+ <h2>🏅 Liderlar jadvali</h2>
+ <div class="tabs"><button class="on" onclick="lb(this,'w')">Hafta</button><button onclick="lb(this,'a')">Hamma vaqt</button></div>
+ <div class="card" id="lbList"></div>
+ <button class="btn o" onclick="startGame('blitz')">🚀 Birinchi o‘ringa chiq!</button>
+</section>
+
+<!-- PROFILE -->
+<section class="sec" id="prof">
+ <div class="card" style="text-align:center"><div class="big" id="pAv">🦊</div>
+  <input id="pName" placeholder="Ismingni yoz" style="text-align:center" onchange="S.name=this.value;save();ui()">
+  <p style="margin:8px 0 4px;font-weight:800" id="pLvl"></p><div class="bar"><i id="pBar"></i></div><small style="color:var(--mut)" id="pNext"></small>
+  <div class="row" style="margin-top:8px" id="avs"></div></div>
+ <div class="card"><h2>🎖 Medallar</h2><div class="badges" id="bds"></div></div>
+ <div class="card"><h2>👨‍👩‍👧 Ota-onalar uchun</h2>
+  <div class="grid" id="par"></div>
+  <p style="margin:12px 0 4px;font-weight:800">So‘nggi 7 kun</p><div id="wk" style="display:flex;gap:6px;align-items:flex-end;height:80px"></div>
+  <button class="btn" onclick="share()">📤 Natijani ulashish</button></div>
+ <div class="card"><h2>🔔 Sozlamalar</h2>
+  <label class="row"><span>Kundalik eslatma</span><input type="checkbox" id="rem" style="width:24px;flex:none" onchange="S.rem=this.checked;save();toast(this.checked?'Eslatma yoqildi 🔔':'O‘chirildi')"></label>
+  <input type="time" id="remT" value="17:00" onchange="S.remT=this.value;save()">
+  <label class="row" style="margin-top:8px"><span>Ovoz effektlari</span><input type="checkbox" id="snd" style="width:24px;flex:none" checked onchange="S.snd=this.checked;save()"></label></div>
+</section>
+
+<!-- COURSES -->
+<section class="sec" id="course">
+ <div class="card hero"><h2>🎓 Mental arifmetika kursi</h2><p style="margin:0">5–14 yosh • Kichik guruhlar • Bepul sinov darsi</p>
+  <button class="btn o" onclick="document.getElementById('fName').scrollIntoView({behavior:'smooth'})">🚀 Kursga qo‘shilish</button></div>
+ <div class="card"><h2>✨ Nega aynan biz?</h2>
+  <div class="tc"><i>🧠</i><div><b>Xotira va diqqat</b><br><small>Ikkala yarim shar rivojlanadi</small></div></div>
+  <div class="tc"><i>⚡</i><div><b>Tez hisoblash</b><br><small>Kalkulyatorsiz, 3 baravar tez</small></div></div>
+  <div class="tc"><i>🏆</i><div><b>Musobaqalar va sovg‘alar</b><br><small>Har oy turnir va sertifikat</small></div></div>
+  <div class="tc"><i>📊</i><div><b>Ota-onaga hisobot</b><br><small>Har hafta natijalar Telegramda</small></div></div></div>
+ <div class="card"><h2>👩‍🏫 Ustozlarimiz</h2>
+  <div class="tc"><i>👩‍🏫</i><div><b>Malika opa</b><br><small>5–8 yosh • 7 yillik tajriba</small></div></div>
+  <div class="tc"><i>👨‍🏫</i><div><b>Jasur aka</b><br><small>9–14 yosh • Respublika chempionlari ustozi</small></div></div></div>
+ <div class="card"><h2>📋 Kurs bosqichlari</h2>
+  <div class="tc"><i>1️⃣</i><div><b>Boshlang‘ich</b> — abakus, 1–9 sonlar</div></div>
+  <div class="tc"><i>2️⃣</i><div><b>O‘rta</b> — ikki xonali sonlar, ko‘paytirish</div></div>
+  <div class="tc"><i>3️⃣</i><div><b>Yuqori</b> — tezkor bo‘lish va aralash amallar</div></div></div>
+ <div class="card"><h2>📝 Bepul sinov darsiga yozilish</h2>
+  <input id="fName" placeholder="Farzand ismi"><input id="fAge" type="number" min="5" max="14" placeholder="Yoshi (5–14)">
+  <input id="fTel" type="tel" placeholder="Ota-ona telefoni +998 ..."><select id="fTime"><option>Ertalab (9:00–12:00)</option><option>Tushdan keyin (14:00–17:00)</option><option>Kechqurun (17:00–19:00)</option></select>
+  <button class="btn" onclick="sendForm()">🎉 Bepul sinov darsiga yozilish</button><small style='color:var(--mut);display:block;margin-top:8px'>Tugmani bossangiz, Telegram ochiladi — «Yuborish»ni bosing.</small></div>
+</section>
+</main>
+
+<nav>
+ <button class="on" data-s="home"><span>🏠</span>Bosh</button>
+ <button data-s="prac"><span>🎮</span>Mashq</button>
+ <button data-s="lead"><span>🏅</span>Reyting</button>
+ <button data-s="prof"><span>🦊</span>Profil</button>
+ <button data-s="course"><span>🎓</span>Kurs</button>
+</nav>
+
+<!-- GAME -->
+<div class="ov" id="game"><div class="card" style="width:100%;max-width:420px;text-align:left;max-height:100%;overflow:auto">
+ <div class="row"><b id="gInfo"></b><b id="gTime" style="text-align:right"></b><button onclick="endGame(true)" style="flex:none;border:0;background:none;font-size:22px">✖</button></div>
+ <div class="bar" style="margin-top:6px"><i id="gBar" style="width:0"></i></div>
+ <div class="q" id="gQ"></div><div id="gMsg" style="text-align:center;min-height:24px;font-weight:800"></div>
+ <div class="ans" id="gA"></div>
+ <div class="pad" id="pad"></div><div class="grid" id="quizOpts" style="display:none;margin-top:10px"></div></div></div>
+<!-- RESULT -->
+<div class="ov" id="res"><div class="card"><div class="big" id="rEmo"></div><h2 id="rTit"></h2><p id="rTxt"></p><div id="rStars" style="font-size:40px"></div>
+ <button class="btn" onclick="closeRes();startGame(last)">🔁 Yana o‘ynash</button>
+ <button class="btn o" onclick="closeRes();go('course')">🎓 Kursga qo‘shilish</button>
+ <button class="btn p" onclick="closeRes()">Yopish</button></div></div>
+
+<script>
+const tg=window.Telegram&&window.Telegram.WebApp;if(tg){try{tg.ready();tg.expand()}catch(e){}}
+const $=id=>document.getElementById(id);
+const DEF={name:'',xp:0,stars:0,streak:0,last:'',daily:'',solved:0,right:0,ms:0,best:0,av:'🦊',lvl:1,snd:true,rem:false,remT:'17:00',days:{},bd:{},games:0};
+let S=Object.assign({},DEF);
+try{Object.assign(S,JSON.parse(localStorage.getItem('ma')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('ma',JSON.stringify(S))}catch(e){}};
+const today=()=>new Date().toISOString().slice(0,10);
+const TITLES=['Yangi boshlovchi','Sonlar do‘sti','Tez hisobchi','Miya chempioni','Mental usta','Arifmetika qirol!'];
+const lvl=()=>Math.floor(S.xp/150)+1;
+const BADGES=[['🚀','Birinchi qadam',s=>s.games>=1],['🔥','3 kun seriya',s=>s.streak>=3],['💪','7 kun seriya',s=>s.streak>=7],['🎯','50 ta to‘g‘ri',s=>s.right>=50],['⚡','Blitz 15+',s=>s.best>=15],['⭐','20 yulduz',s=>s.stars>=20],['🏆','500 ball',s=>s.xp>=500],['🧠','200 ta to‘g‘ri',s=>s.right>=200],['👑','10-daraja',s=>lvl()>=10]];
+const GIFTS=['🎨 Yangi avatar: 🦄 (3-daraja)','🎁 Sirli quti (5-daraja)','🏅 Oltin medal (8-daraja)','🚀 Raketa avatar (10-daraja)'];
+function ui(){const L=lvl(),p=(S.xp%150)/150*100;
+ $('hName').textContent=S.name||'do‘stim';$('hLvl').textContent='Daraja '+L+' • '+TITLES[Math.min(L-1,5)];
+ $('sStar').textContent=S.stars;$('sXp').textContent=S.xp;$('sStr').textContent=S.streak;
+ const dd=S.daily===today();$('dBar').style.width=dd?'100%':'0';$('dBtn').textContent=dd?'🎉 Bugun bajarildi! Yana mashq qil':'✅ Topshiriqni bajarish';
+ $('gift').textContent=GIFTS[Math.min(Math.floor(L/3),3)]+' — ochilishiga '+(150-S.xp%150)+' ball qoldi';
+ $('pAv').textContent=S.av;$('pName').value=S.name;$('pLvl').textContent='Daraja '+L+' • '+TITLES[Math.min(L-1,5)];$('pBar').style.width=p+'%';$('pNext').textContent=(150-S.xp%150)+' ball — keyingi darajagacha';
+ $('avs').innerHTML=['🦊','🐼','🦁','🐯','🦄','🚀'].map((a,i)=>`<button class="op" style="padding:6px;font-size:24px;opacity:${i<=Math.floor(L/2)?1:.3}" onclick="setAv('${a}',${i})">${a}</button>`).join('');
+ $('bds').innerHTML=BADGES.map(b=>`<div class="bd ${b[2](S)?'on':''}"><span>${b[0]}</span>${b[1]}</div>`).join('');
+ const acc=S.solved?Math.round(S.right/S.solved*100):0,avg=S.right?(S.ms/S.right/1000).toFixed(1):'–';
+ $('par').innerHTML=[['📝',S.solved,'Yechilgan'],['✅',acc+'%','Aniqlik'],['⏱',avg+'s','O‘rtacha vaqt'],['🔥',S.streak,'Kunlik seriya']].map(x=>`<div class="stat"><b>${x[0]} ${x[1]}</b><small>${x[2]}</small></div>`).join('');
+ let w='';for(let i=6;i>=0;i--){const d=new Date(Date.now()-i*864e5),k=d.toISOString().slice(0,10),v=S.days[k]||0;w+=`<div style="flex:1;text-align:center;font-size:10px"><div style="height:${Math.min(60,v*2+4)}px;background:var(--p);border-radius:6px 6px 0 0"></div>${['Ya','Du','Se','Ch','Pa','Ju','Sh'][d.getDay()]}</div>`}$('wk').innerHTML=w;
+ $('rem').checked=S.rem;$('remT').value=S.remT;$('snd').checked=S.snd;lb(null,'w')}
+function setAv(a,i){if(i>Math.floor(lvl()/2))return toast('🔒 Darajani oshir!');S.av=a;save();ui()}
+function go(id){document.querySelectorAll('.sec').forEach(s=>s.classList.toggle('on',s.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.s===id));scrollTo(0,0);ui()}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.s));
+let LV=1;$('lvTabs').onclick=e=>{if(!e.target.dataset.l)return;LV=+e.target.dataset.l;[...$('lvTabs').children].forEach(c=>c.classList.toggle('on',c===e.target))};
+function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2200)}
+function lb(btn,t){if(btn){[...btn.parentNode.children].forEach(c=>c.classList.toggle('on',c===btn))}
+ const base=[['Aziza',920],['Bobur',840],['Madina',760],['Sardor',690],['Zarina',610],['Jasmina',540],['Ali',470]].map(x=>[x[0],t==='w'?x[1]:x[1]*4]);
+ const me=[S.name||'Sen',t==='w'?Object.values(S.days).slice(-7).reduce((a,b)=>a+b,0)*5+S.xp%400:S.xp,1];
+ const all=base.concat([me]).sort((a,b)=>b[1]-a[1]);
+ $('lbList').innerHTML=all.map((r,i)=>`<div class="lb ${r[2]?'me':''}"><em>${['🥇','🥈','🥉'][i]||i+1}</em><b>${r[0]}${r[2]?' (Sen)':''}</b><span>${r[1]} ⭐</span></div>`).join('')}
+// sound
+let AC;function beep(f,d=.12,type='sine'){if(!S.snd)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.value=.15;o.connect(g);g.connect(AC.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+d);o.stop(AC.currentTime+d)}catch(e){}}
+const ok=()=>{beep(660);setTimeout(()=>beep(880),90)},no=()=>beep(180,.25,'square');
+function confetti(){for(let i=0;i<28;i++){const c=document.createElement('div');c.className='cf';c.textContent=['🎉','⭐','✨','🎊'][i%4];c.style.left=Math.random()*100+'vw';c.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),3000)}}
+// game
+let G=null,last='daily';
+const R=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+function mk(op){const m=[10,50,100][LV-1];let a,b,s,r;
+ if(op==='mix')op='+-*/'[R(0,3)];
+ if(op==='+'){a=R(1,m);b=R(1,m);r=a+b}
+ else if(op==='-'){a=R(2,m);b=R(1,a);r=a-b}
+ else if(op==='*'){const t=[5,9,12][LV-1];a=R(2,t);b=R(2,t);r=a*b}
+ else{const t=[5,9,12][LV-1];b=R(2,t);r=R(1,t);a=b*r}
+ return{t:`${a} ${op==='*'?'×':op==='/'?'÷':op==='-'?'−':'+'} ${b}`,r}}
+function startGame(mode){last=mode;const blitz=mode==='blitz',quiz=mode==='quiz';
+ G={mode,n:0,tot:blitz?999:10,ok:0,in:'',t0:Date.now(),qs:Date.now(),left:60,time:0,score:0};
+ $('game').classList.add('on');$('pad').style.display=quiz?'none':'grid';$('quizOpts').style.display=quiz?'grid':'none';$('gA').style.display=quiz?'none':'block';
+ buildPad();next();clearInterval(G.iv);
+ if(blitz)G.iv=setInterval(()=>{G.left--;$('gTime').textContent='⏱ '+G.left;$('gBar').style.width=(60-G.left)/60*100+'%';if(G.left<=0)endGame()},1000);else $('gTime').textContent=''}
+function buildPad(){$('pad').innerHTML=[1,2,3,4,5,6,7,8,9,'⌫',0,'✓'].map(k=>`<button onclick="key('${k}')" ${k==='✓'?'style="background:var(--g);color:#fff"':''}>${k}</button>`).join('')}
+function next(){const o=G.mode==='daily'||G.mode==='blitz'||G.mode==='quiz'?'mix':G.mode;G.q=mk(o);G.in='';G.qs=Date.now();
+ $('gQ').textContent=G.q.t+' = ?';$('gA').textContent='';$('gMsg').textContent='';
+ $('gInfo').textContent=G.mode==='blitz'?'✅ '+G.ok:(G.n+1)+' / '+G.tot;
+ if(G.mode!=='blitz')$('gBar').style.width=G.n/G.tot*100+'%';
+ if(G.mode==='quiz'){const o=new Set([G.q.r]);while(o.size<4)o.add(Math.max(0,G.q.r+R(-5,5)));$('quizOpts').innerHTML=[...o].sort(()=>Math.random()-.5).map(v=>`<button class="op" onclick="submit(${v})">${v}</button>`).join('')}}
+function key(k){if(k==='⌫')G.in=G.in.slice(0,-1);else if(k==='✓'){if(G.in)submit(+G.in);return}else if(G.in.length<5)G.in+=k;$('gA').textContent=G.in}
+function submit(v){const good=v===G.q.r;S.solved++;G.n++;
+ if(good){S.right++;G.ok++;S.ms+=Date.now()-G.qs;G.score+=10+(Date.now()-G.qs<4000?5:0);ok();$('gMsg').innerHTML='<span class="good">'+['Zo‘r! 🎉','Barakalla! ⭐','Ajoyib! 🚀','Super! 💪'][R(0,3)]+'</span>'}
+ else{no();$('gA').classList.add('shake');setTimeout(()=>$('gA').classList.remove('shake'),400);$('gMsg').innerHTML='<span class="bad">To‘g‘ri javob: '+G.q.r+'</span>'}
+ if(G.mode!=='blitz'&&G.n>=G.tot)return setTimeout(()=>endGame(),700);
+ setTimeout(next,good?250:900)}
+function endGame(quit){if(!G)return;clearInterval(G.iv);$('game').classList.remove('on');if(quit&&G.n===0){G=null;return}
+ const full=G.mode==='daily'&&G.ok===10;let xp=G.score+(full?50:0);
+ const stars=G.mode==='blitz'?(G.ok>=20?3:G.ok>=12?2:G.ok>=5?1:0):(G.ok>=10?3:G.ok>=7?2:G.ok>=4?1:0);
+ const t=today();
+ if(S.last!==t){const y=new Date(Date.now()-864e5).toISOString().slice(0,10);S.streak=S.last===y?S.streak+1:1;S.last=t}
+ if(G.mode==='daily')S.daily=t;if(G.mode==='blitz')S.best=Math.max(S.best,G.ok);
+ const before=lvl();S.xp+=xp;S.stars+=stars;S.games++;S.days[t]=(S.days[t]||0)+G.ok;save();
+ const up=lvl()>before;$('rEmo').textContent=stars===3?'🏆':stars?'😃':'💪';
+ $('rTit').textContent=up?'🎊 Yangi daraja: '+lvl()+'!':stars===3?'Mukammal natija!':stars?'Yaxshi urinish!':'Hech qisi yo‘q, yana urin!';
+ $('rTxt').innerHTML=`To‘g‘ri: <b>${G.ok}</b> • +<b>${xp}</b> ball ${full?'<br>🎁 Bonus +50!':''}<br><small>Haftalik chempionlikka bir qadam yaqinlashding!</small>`;
+ $('rStars').textContent='⭐'.repeat(stars)+'☆'.repeat(3-stars);$('res').classList.add('on');if(stars>=2||up)confetti();
+ ok();ui();G=null;
+ if(tg&&tg.sendData&&false)tg.sendData(JSON.stringify({type:'result',xp:S.xp}))}
+function closeRes(){$('res').classList.remove('on')}
+function sendForm(){const d={name:$('fName').value.trim(),age:$('fAge').value,tel:$('fTel').value.trim(),time:$('fTime').value};
+ if(!d.name||!d.tel||d.age<5||d.age>14)return toast('Iltimos, ma’lumotlarni to‘ldiring 🙏');
+ const t='🎓 Bepul sinov darsiga ariza\n👦 Ism: '+d.name+'\n🎂 Yosh: '+d.age+'\n📞 Telefon: '+d.tel+'\n🕒 Vaqt: '+d.time;
+ const u='https://t.me/abdulhamid199095?text='+encodeURIComponent(t);
+ S.xp+=30;save();ui();confetti();
+ try{if(tg&&tg.openTelegramLink){tg.openTelegramLink(u);return}}catch(e){}
+ window.open(u,'_blank')}
+function share(){const t=`${S.name||'Farzandim'} mental arifmetikada ${lvl()}-darajaga yetdi! ⭐${S.stars} 🔥${S.streak} kun`;try{if(tg&&tg.openTelegramLink){tg.openTelegramLink('https://t.me/share/url?url=https://t.me&text='+encodeURIComponent(t));return}}catch(e){}toast(t)}
+if(tg&&tg.colorScheme)document.documentElement.dataset.theme=tg.colorScheme;
+ui();
+</script></body></html>
