@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mental Arifmetika 🧮</title>
+<style>
+:root{--bg:#fff7e6;--card:#fff;--tx:#2b2d42;--mut:#7a7f9a;--p:#6c5ce7;--g:#00b894;--o:#ff9f1c;--r:#ff5e78;--b:#2dabf9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1d1b2e;--card:#2a2842;--tx:#f3f1ff;--mut:#a9a6c9}}
+:root[data-theme=dark]{--bg:#1d1b2e;--card:#2a2842;--tx:#f3f1ff;--mut:#a9a6c9}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Nunito","Trebuchet MS",system-ui,sans-serif;padding-bottom:84px}
+main{max-width:520px;margin:auto;padding:14px}
+h1,h2,h3{margin:0 0 8px}h2{font-size:20px}
+.card{background:var(--card);border-radius:22px;padding:16px;margin-bottom:14px;box-shadow:0 4px 0 rgba(0,0,0,.08)}
+.hero{background:linear-gradient(135deg,var(--p),var(--b));color:#fff}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:14px;font:800 17px inherit;font-family:inherit;color:#fff;background:var(--g);box-shadow:0 5px 0 rgba(0,0,0,.2);cursor:pointer;margin-top:10px;text-align:center}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.btn.o{background:var(--o)}.btn.p{background:var(--p)}.btn.r{background:var(--r)}
+.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}
+.stat{text-align:center;background:var(--card);border-radius:18px;padding:10px 4px;box-shadow:0 3px 0 rgba(0,0,0,.08)}
+.stat b{display:block;font-size:22px}.stat small{color:var(--mut)}
+.bar{height:14px;background:rgba(127,127,127,.2);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--o),var(--r));border-radius:9px;transition:width .5s}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);display:flex;justify-content:space-around;padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -3px 12px rgba(0,0,0,.12);z-index:5}
+nav button{background:none;border:0;font:700 11px inherit;font-family:inherit;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 8px;border-radius:12px}
+nav button span{font-size:22px}nav button.on{color:var(--p);background:rgba(108,92,231,.12)}
+.sec{display:none}.sec.on{display:block;animation:pop .3s}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.op{background:var(--card);border:0;border-radius:18px;padding:14px;font:800 16px inherit;font-family:inherit;color:var(--tx);box-shadow:0 4px 0 rgba(0,0,0,.1)}
+.op span{display:block;font-size:34px}
+.q{font-size:56px;font-weight:900;text-align:center;margin:18px 0 6px}
+.ans{font-size:40px;text-align:center;min-height:56px;background:rgba(127,127,127,.12);border-radius:16px;font-weight:800;padding:4px}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.pad button{font:800 26px inherit;font-family:inherit;border:0;border-radius:14px;padding:14px 0;background:var(--card);color:var(--tx);box-shadow:0 4px 0 rgba(0,0,0,.12)}
+.pad button:active{transform:translateY(3px)}
